@@ -1,5 +1,5 @@
 //
-//  Stepper.swift
+//  StepperView.swift
 //  Toggle_Segmented_Stepper_Slider_SwiftUI
 //
 //  Created by Ömer on 20.03.2025.
@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-struct Stepper: View {
+struct StepperView: View {
+    @State private var stepperDurum = 0
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Stepper("Stepper", value: $stepperDurum, in: 0...10)
+                .padding()
+            
+            Text("Stepper Durum: \(stepperDurum)")
+        }
     }
 }
 
 #Preview {
-    Stepper()
+    StepperView()
 }
