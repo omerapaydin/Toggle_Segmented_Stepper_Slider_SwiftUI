@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var switchDurum = false
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Toggle("Switch",isOn: $switchDurum )
+                .onChange(of: switchDurum){
+                    print("Switch: \(switchDurum)")
+                }.toggleStyle(SwitchToggleStyle(tint: .red))
+                .padding()
+            
+            Button("Baslat"){
+                print("Switch: \(switchDurum)")
+            }
         }
-        .padding()
+       
     }
 }
 
